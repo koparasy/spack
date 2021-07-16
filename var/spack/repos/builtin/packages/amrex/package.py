@@ -78,6 +78,7 @@ class Amrex(CMakePackage, CudaPackage, ROCmPackage):
     variant('pic', default=False,
             description='Enable PIC')
 
+    patch('amrex.patch')
     # Build dependencies
     depends_on('mpi', when='+mpi')
     depends_on('sundials@4.0.0:4.1.0 +ARKODE +CVODE', when='@19.08: +sundials')
